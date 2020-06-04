@@ -30,7 +30,7 @@ class App extends Component {
 				<Switch>
 					<Route path="/users" component={Users} />
 					<Route path="/courses" exact component={Courses} />
-					<Route path="/courses/:id" component={Course} />
+					<Route path="/courses/:id/:title" component={Course} />
 				</Switch>
 
 				{/* <ol style={{textAlign: 'left'}}>y

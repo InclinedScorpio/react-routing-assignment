@@ -12,8 +12,8 @@ class Courses extends Component {
 		]
 	};
 
-	handleCourseClick = id => {
-		this.props.history.push("/courses/" + id);
+	handleCourseClick = (id, title) => {
+		this.props.history.push("/courses/" + id + "/" + title);
 	};
 
 	render() {
@@ -26,7 +26,7 @@ class Courses extends Component {
 							<article
 								className="Course"
 								key={course.id}
-								onClick={() => this.handleCourseClick(course.id)}
+								onClick={() => this.handleCourseClick(course.id, course.title)}
 							>
 								{course.title}
 							</article>
