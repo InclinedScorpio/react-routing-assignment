@@ -29,6 +29,7 @@ class App extends Component {
 				<Switch>
 					<Route path="/users" component={Users} />
 					<Route path="/courses" component={Courses} />
+					<Route render={() => <div>404 | Page not found</div>} />
 				</Switch>
 
 				{/* <ol style={{textAlign: 'left'}}>y
