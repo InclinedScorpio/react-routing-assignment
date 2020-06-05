@@ -8,7 +8,13 @@ class Course extends Component {
 
 	componentDidMount() {
 		console.log("Props received::", this.props);
-		this.updateState(this.props);
+		const query = new URLSearchParams(this.props.location.search);
+		for (let param of query.entries()) {
+			this.setState({
+				id: this.props.match.params.id,
+				title: param[1]
+			});
+		}
 		console.log("Did mount");
 	}
 
@@ -20,18 +26,16 @@ class Course extends Component {
 			this.state.id &&
 			nextProps.match.params.id != this.props.match.params.id
 		) {
-			console.log("console");
+			const query = new URLSearchParams(this.props.location.search);
 
-			this.updateState(this.props);
+			for (let param of query.entries()) {
+				this.setState({
+					id: this.props.match.params.id,
+					title: param[1]
+				});
+			}
 		}
 	}
-
-	updateState = nextProps => {
-		this.setState({
-			id: nextProps.match.params.id,
-			title: nextProps.match.params.title
-		});
-	};
 
 	render() {
 		return (

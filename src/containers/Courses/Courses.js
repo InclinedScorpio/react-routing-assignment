@@ -14,7 +14,10 @@ class Courses extends Component {
 	};
 
 	handleCourseClick = (id, title) => {
-		this.props.history.push("/courses/" + id + "/" + title);
+		this.props.history.push({
+			pathname: "/courses/" + id,
+			search: "?title=" + title
+		});
 	};
 
 	render() {
@@ -34,7 +37,7 @@ class Courses extends Component {
 						);
 					})}
 				</section>
-				<Route path="/courses/:id/:title" component={Course} />
+				<Route path="/courses/:id" component={Course} />
 			</div>
 		);
 	}
